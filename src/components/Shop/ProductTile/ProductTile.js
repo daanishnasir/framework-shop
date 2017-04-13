@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import { Link } from "react-router-dom";
 
 import "./ProductTile.css";
 
@@ -6,7 +7,7 @@ export default function ProductTile( { addToCart, logo, name, price } ) {
 	return (
 		<div className="product-tile">
 			<section className="product-tile__info">
-				<h3>{ name }</h3>
+				<Link to={ `/details/${ name }` }><h3>{ name }</h3></Link>
 				<button
 					className="product-tile__buy"
 					onClick={ addToCart }
@@ -18,7 +19,7 @@ export default function ProductTile( { addToCart, logo, name, price } ) {
 				<img
 					className="product-tile__logo"
 					alt={ `${ name } logo` }
-					src={ "" /* product logo */ }
+					src={ logo }
 				/>
 			</section>
 		</div>
